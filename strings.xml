@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+	<header datatype="winres" segtype="sentence" adminlang="en-us" srclang="en-us" o-tmf="abc" />
+	<body>
+
+		<!-- Plugin Strings -->
+
+		<tu tuid='projects.common.author'>
+			<tuv xml:lang="en_US"><seg>Author</seg></tuv>
+		</tu>
+		<tu tuid='projects.common.mask'>
+			<tuv xml:lang="en_US"><seg>Mask</seg></tuv>
+		</tu>
+		<tu tuid='projects.common.problem'>
+			<tuv xml:lang="en_US"><seg>Problem</seg></tuv>
+		</tu>
+		<tu tuid='projects.common.problems'>
+			<tuv xml:lang="en_US"><seg>Problems</seg></tuv>
+		</tu>
+		<tu tuid='projects.common.project'>
+			<tuv xml:lang="en_US"><seg>Project</seg></tuv>
+		</tu>
+		<tu tuid='projects.common.projects'>
+			<tuv xml:lang="en_US"><seg>Projects</seg></tuv>
+		</tu>
+		<tu tuid='projects.common.question'>
+			<tuv xml:lang="en_US"><seg>Question</seg></tuv>
+		</tu>
+		<tu tuid='projects.common.questions'>
+			<tuv xml:lang="en_US"><seg>Questions</seg></tuv>
+		</tu>
+		<tu tuid='projects.common.idea'>
+			<tuv xml:lang="en_US"><seg>Idea</seg></tuv>
+		</tu>
+		<tu tuid='projects.common.ideas'>
+			<tuv xml:lang="en_US"><seg>Ideas</seg></tuv>
+		</tu>
+
+		<!-- Contexts -->
+		
+		<tu tuid='context.projects.project.assigned'>
+			<tuv xml:lang="en_US"><seg>%s assigned a project to you.</seg></tuv>
+		</tu>
+		<tu tuid='context.projects.project.commented'>
+			<tuv xml:lang="en_US"><seg>%s commented on a project.</seg></tuv>
+		</tu>
+		<tu tuid='context.projects.problem.assigned'>
+			<tuv xml:lang="en_US"><seg>%s assigned a problem to you.</seg></tuv>
+		</tu>
+		<tu tuid='context.projects.problem.commented'>
+			<tuv xml:lang="en_US"><seg>%s commented on a problem.</seg></tuv>
+		</tu>
+		<tu tuid='context.projects.question.assigned'>
+			<tuv xml:lang="en_US"><seg>%s assigned a question to you.</seg></tuv>
+		</tu>
+		<tu tuid='context.projects.question.commented'>
+			<tuv xml:lang="en_US"><seg>%s commented on a question.</seg></tuv>
+		</tu>
+		<tu tuid='context.projects.idea.assigned'>
+			<tuv xml:lang="en_US"><seg>%s assigned an idea to you.</seg></tuv>
+		</tu>
+		<tu tuid='context.projects.idea.commented'>
+			<tuv xml:lang="en_US"><seg>%s commented on an idea.</seg></tuv>
+		</tu>
+
+		<!-- Peek -->
+		
+		<tu tuid='projects.peek.prefix'>
+			<tuv xml:lang="en_US"><seg>Prefix</seg></tuv>
+		</tu>
+		<tu tuid='projects.peek.prefix.help'>
+			<tuv xml:lang="en_US"><seg>These 2-8 unique uppercase letters will prefix any issues associated with this project; e.g. "CHD" or "DEV".</seg></tuv>
+		</tu>
+		
+		<!-- Shared DAO -->
+		
+		<tu tuid='projects.common.dao.num_comments'>
+			<tuv xml:lang="en_US"><seg># Comments</seg></tuv>
+		</tu>
+		<tu tuid='projects.common.dao.num_votes_up'>
+			<tuv xml:lang="en_US"><seg># Votes Up</seg></tuv>
+		</tu>
+		<tu tuid='projects.common.dao.num_votes_down'>
+			<tuv xml:lang="en_US"><seg># Votes Down</seg></tuv>
+		</tu>
+		<tu tuid='projects.common.dao.title'>
+			<tuv xml:lang="en_US"><seg>Title</seg></tuv>
+		</tu>
+
+		<!-- Project Question -->
+		
+		<tu tuid='dao.project_question.is_answered'>
+			<tuv xml:lang="en_US"><seg>Is Answered</seg></tuv>
+		</tu>
+		
+		<!-- Project Problem -->
+		
+		<tu tuid='dao.project_problem.is_solved'>
+			<tuv xml:lang="en_US"><seg>Is Solved</seg></tuv>
+		</tu>
+		
+		<!-- Project Suggestion -->
+		
+		<tu tuid='dao.project_idea.is_closed'>
+			<tuv xml:lang="en_US"><seg>Is Closed</seg></tuv>
+		</tu>
+		
+	</body>
+</tmx>

@@ -1,0 +1,242 @@
+<!DOCTYPE plugin SYSTEM "../../libs/devblocks/plugin.dtd">
+<plugin>
+	<id>cerberusweb.projects</id>
+	<name>[Cerb5] Project Management</name>
+	<description>Adds project management functionality to Cerb5 for tracking questions, problems, and ideas.  These can be linked to any other record inside the helpdesk; e.g. linking ideas to customers creates wishlists for broadcast followups.</description>
+	<author>WebGroup Media, LLC.</author>
+	<revision>1</revision>
+	<link>http://www.cerb5.com/</link>
+	<!--<image>plugin.png</image>-->
+ 
+	<!-- Plugin Dependencies -->
+	
+	<dependencies>
+		<require plugin_id="cerberusweb.core" version="5.2.0-dev" />
+	</dependencies>
+
+	<!-- Patches -->
+	
+	<patches>
+		<patch version="5.2.0-dev" revision="1" file="patches/5.2.0.php" />
+	</patches>
+	
+	<!-- Exported Classes -->
+	
+	<class_loader>
+		<file path="api/dao/project.php">
+			<class name="DAO_Project" />
+			<class name="Model_Project" />
+			<class name="SearchFields_Project" />
+			<class name="View_Project" />
+		</file>
+		<file path="api/dao/project_comment.php">
+			<class name="DAO_ProjectComment" />
+			<class name="Model_ProjectComment" />
+			<class name="SearchFields_ProjectComment" />
+			<class name="View_ProjectComment" />
+		</file>
+		<file path="api/dao/project_problem.php">
+			<class name="DAO_ProjectProblem" />
+			<class name="Model_ProjectProblem" />
+			<class name="SearchFields_ProjectProblem" />
+			<class name="View_ProjectProblem" />
+		</file>
+		<file path="api/dao/project_question.php">
+			<class name="DAO_ProjectQuestion" />
+			<class name="Model_ProjectQuestion" />
+			<class name="SearchFields_ProjectQuestion" />
+			<class name="View_ProjectQuestion" />
+		</file>
+		<file path="api/dao/project_idea.php">
+			<class name="DAO_ProjectIdea" />
+			<class name="Model_ProjectIdea" />
+			<class name="SearchFields_ProjectIdea" />
+			<class name="View_ProjectIdea" />
+		</file>
+	</class_loader>
+
+	<!-- Templates -->
+	
+	<!--
+	<templates set="example.template.namespace">
+		<template path="path/to/template.tpl" />
+	</templates>
+	-->	
+
+	<!-- Extensions -->
+ 
+	<extensions>
+
+		<!-- Contexts -->
+		
+		<extension point="devblocks.context">
+			<id>cerberusweb.contexts.projects.project</id>
+			<name>Project</name>
+			<class>
+				<file>api/dao/project.php</file>
+				<name>Context_Project</name>
+			</class>
+			<params>
+				<param key="view_class" value="View_Project" />
+				<param key="options">
+					<value>
+						<!--<data key="create" />-->
+						<data key="find" />
+						<data key="workspace" />
+					</value>
+				</param>
+				<param key="events">
+					<value>
+						<data key="context.assigned" value="context.projects.project.assigned" />
+						<data key="context.commented" value="context.projects.project.commented" />
+					</value>
+				</param>
+			</params>
+		</extension>
+
+		<extension point="devblocks.context">
+			<id>cerberusweb.contexts.projects.question</id>
+			<name>Question</name>
+			<class>
+				<file>api/dao/project_question.php</file>
+				<name>Context_ProjectQuestion</name>
+			</class>
+			<params>
+				<param key="view_class" value="View_ProjectQuestion" />
+				<param key="options">
+					<value>
+						<!--<data key="create" />-->
+						<data key="find" />
+						<data key="workspace" />
+					</value>
+				</param>
+				<param key="events">
+					<value>
+						<data key="context.assigned" value="context.projects.project.assigned" />
+						<data key="context.commented" value="context.projects.project.commented" />
+					</value>
+				</param>
+			</params>
+		</extension>
+
+		<extension point="devblocks.context">
+			<id>cerberusweb.contexts.projects.problem</id>
+			<name>Problem</name>
+			<class>
+				<file>api/dao/project_problem.php</file>
+				<name>Context_ProjectProblem</name>
+			</class>
+			<params>
+				<param key="view_class" value="View_ProjectProblem" />
+				<param key="options">
+					<value>
+						<!--<data key="create" />-->
+						<data key="find" />
+						<data key="workspace" />
+					</value>
+				</param>
+				<param key="events">
+					<value>
+						<data key="context.assigned" value="context.projects.problem.assigned" />
+						<data key="context.commented" value="context.projects.problem.commented" />
+					</value>
+				</param>
+			</params>
+		</extension>
+
+		<extension point="devblocks.context">
+			<id>cerberusweb.contexts.projects.idea</id>
+			<name>Suggestion</name>
+			<class>
+				<file>api/dao/project_idea.php</file>
+				<name>Context_ProjectIdea</name>
+			</class>
+			<params>
+				<param key="view_class" value="View_ProjectIdea" />
+				<param key="options">
+					<value>
+						<!--<data key="create" />-->
+						<data key="find" />
+						<data key="workspace" />
+					</value>
+				</param>
+				<param key="events">
+					<value>
+						<data key="context.assigned" value="context.projects.idea.assigned" />
+						<data key="context.commented" value="context.projects.idea.commented" />
+					</value>
+				</param>
+			</params>
+		</extension>
+
+		<!-- Page Extensions -->
+		
+		<extension point="cerberusweb.page">
+			<id>projects.page</id>
+			<name>Projects Page</name>
+			<class>
+				<file>api/App.php</file>
+				<name>Page_Projects</name>
+			</class>
+			<params>
+				<param key="uri" value="projects" />
+				<param key="menutitle" value="projects.common.projects" />
+			</params>
+		</extension>
+		
+		<!-- Project Tabs -->
+		
+		<extension point="cerberusweb.projects.tab">
+			<id>projects.tab</id>
+			<name>Projects Tab</name>
+			<class>
+				<file>api/App.php</file>
+				<name>ProjectsTab</name>
+			</class>
+			<params>
+				<param key="uri" value="list" />
+    			<param key="title" value="projects.common.projects" />
+			</params>
+		</extension>		
+		
+		<extension point="cerberusweb.projects.tab">
+			<id>projects.tab.questions</id>
+			<name>Questions Tab</name>
+			<class>
+				<file>api/App.php</file>
+				<name>ProjectsQuestionsTab</name>
+			</class>
+			<params>
+				<param key="uri" value="questions" />
+    			<param key="title" value="projects.common.questions" />
+			</params>
+		</extension>		
+		
+		<extension point="cerberusweb.projects.tab">
+			<id>projects.tab.problems</id>
+			<name>Problems Tab</name>
+			<class>
+				<file>api/App.php</file>
+				<name>ProjectsProblemsTab</name>
+			</class>
+			<params>
+				<param key="uri" value="problems" />
+    			<param key="title" value="projects.common.problems" />
+			</params>
+		</extension>		
+		
+		<extension point="cerberusweb.projects.tab">
+			<id>projects.tab.ideas</id>
+			<name>Ideas Tab</name>
+			<class>
+				<file>api/App.php</file>
+				<name>ProjectsIdeasTab</name>
+			</class>
+			<params>
+				<param key="uri" value="ideas" />
+    			<param key="title" value="projects.common.ideas" />
+			</params>
+		</extension>		
+		
+    </extensions> 
+</plugin>
